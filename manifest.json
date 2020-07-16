@@ -1,0 +1,40 @@
+{
+    "name": "YouTube Darkmode",
+    "version": "1.0.0",
+    "description": "We can use youtube in a dark mode",
+    "manifest_version": 2,
+    "background": {
+        "scripts": [
+            "background.js",
+            "backgroundMessaging.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*.youtube.com/*"],
+            "exclude_maches": ["https://*.youtube.com/watch*"],
+            "js": [
+                "content.js",
+                "contentMessaging.js",
+                "contentRequests.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "bookmarks",
+        "storage",
+        "tabs",
+        "https://api.github.com/user/*"
+    ],
+    "icons": {
+        "16": "darkmodeIcon.png",
+        "48": "darkmodeIcon.png",
+        "128": "darkmodeIcon.png"
+    },
+    "browser_action": {
+        "default_title": "Created by Krish, enjoy!",
+        "default_popup": "popup.html"
+    }
+}
